@@ -17,20 +17,17 @@ angular.module('confusionApp')
                 }
                 
             ];
-    
-                this.getDishes = function(){
-                    
-                    return $http.get(baseURL+'dishes');
-                    
-                };
-    
-                this.getDish = function (index) {
-                    
+// getDishes was working with data local but not with baseURL   
+            this.getDishes = function(){
+                return $http.get(baseURL+'dishes');
+
+            };
+// getDish als baseURL   
+            this.getDish = function (index) {
                 return $http.get(baseURL+'dishes/'+index);
-                };
+            };
     
-                // implement a function named getPromotion
-                // that returns a selected promotion.
+// Will need to move var promotions to db.json .
                 this.getPromotion = function(index) {
                     return promotions[index];
                 }
@@ -72,10 +69,8 @@ angular.module('confusionApp')
                 }
                 
             ];
-     
-            // Implement two functions, one named getLeaders,
-            // the other named getLeader(index)
-            // Remember this is a factory not a service
+    
+ // Remember this is a factory not a service
 
             corpfac.getLeaders = function() {
               return leadership;

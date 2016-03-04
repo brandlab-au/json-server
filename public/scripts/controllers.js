@@ -102,8 +102,6 @@ angular.module('confusionApp')
             }
         }])
 
-// implement the IndexController and About Controller here
-
         .controller('IndexController', ['$scope', 'menuFactory', 'corporateFactory', 
             function($scope, menuFactory, corporateFactory) {
 // http get called on json-server db.json
