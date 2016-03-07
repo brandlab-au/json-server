@@ -14,8 +14,12 @@ angular.module('confusionApp')
                 function (response){
     $scope.dishes = response.data;   
                 }
-              
+                ,
+                function(response) {
+                    $scope.message = "Error: "+response.status + " " + response.statusText;
+                }
             );
+              
                         
             $scope.select = function(setTab) {
                 $scope.tab = setTab;
@@ -79,9 +83,9 @@ angular.module('confusionApp')
         $scope.dish = {};
         menuFactory.getDish(parseInt($stateParams.id,10))
         .then(
-        function(response){
-          $scope.dish =  response.data; 
-                }
+              function(response){
+              $scope.dish =  response.data; 
+                    }
             );    
         }])
 
@@ -106,13 +110,14 @@ angular.module('confusionApp')
             function($scope, menuFactory, corporateFactory) {
 // http get's called serve up json-server db.json
                 $scope.dish = {};
-             $scope.featured_dish = menuFactory.getDish(3)
-                .then(
-              function(response){
-                  scope.dish = response.data;
+    $scope.featured_dish = menuFactory.getDish(3)
+            .then(
+                 function(response){
+                 scope.dish = response.data;
                         }
-                    );
-             
+                );
+                
+              
             $scope.promotion_dish = menuFactory.getPromotion(0);
             $scope.chief = corporateFactory.getLeader(3);
 
