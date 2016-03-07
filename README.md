@@ -2,6 +2,9 @@
 ## This is basicly the same as the confusionApp
 ##### Now trying to conect with data on http://localhost:3000/dishes
 
+## Set up local server
+- npm install json-server -g
+- 
 - baseURL in services.js
 - uses $http baseURL= http://localhost:3000/
 - json-server --watch db.json

@@ -104,7 +104,7 @@ angular.module('confusionApp')
 
         .controller('IndexController', ['$scope', 'menuFactory', 'corporateFactory', 
             function($scope, menuFactory, corporateFactory) {
-// http get called on json-server db.json
+// http get's called serve up json-server db.json
                 $scope.dish = {};
              $scope.featured_dish = menuFactory.getDish(3)
                 .then(
