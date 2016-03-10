@@ -113,19 +113,35 @@ angular.module('confusionApp')
     $scope.featured_dish = menuFactory.getDish(3)
             .then(
                  function(response){
-                 scope.dish = response.data;
+                 $scope.dish = response.data;
                         }
                 );
                 
               
-            $scope.promotion_dish = menuFactory.getPromotion(0);
-            $scope.chief = corporateFactory.getLeader(3);
+            menuFactory.getPromotion(0).then(
+            function(response){
+              $scope.promotion_dish = response.data;  
+            }
+            );
+                
+// $scope.chief = corporateFactory.getLeader(3);
+// Call getLeader from corporateFactory and it will fetch data from db.json file
+            corporateFactory.getLeader(3).then(
+                function(response){
+                    $scope.chief =  response.data;
+                });
 
         }])
 
         .controller('AboutController', ['$scope', 'corporateFactory', 
             function($scope, corporateFactory) {
 
-            $scope.leaders = corporateFactory.getLeaders();
+			// Call getLeaders from corporateFactory and it will fetch data from db.json file
+            corporateFactory.getLeaders()
+                .then(
+                function (response){
+                    $scope.leaders = response.data;
+                });
+            //$scope.leaders = corporateFactory.getLeaders();
 
         }]);

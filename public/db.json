@@ -165,6 +165,7 @@
       ]
     }
   ],
+    
   "promotions": [
     {
       "id": 0,
@@ -209,5 +210,27 @@
       "description": "Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. He says, Put together the cuisines from the two craziest cultures, and you get a winning hit! Amma Mia!"
     }
   ],
-  "feedback": []
+  "feedback": [],
+ "promotions": [
+                {
+                          _id:0,
+                          name:'Weekend Grand Buffet', 
+                          image: 'images/buffet.png',
+                          label:'New',
+                          price:'19.99',
+                          description:'Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person ',
+                }
+                
+            ],
+     "promotions" : [
+                {
+                          _id:0,
+                          name:'Weekend Grand Buffet', 
+                          image: 'images/buffet.png',
+                          label:'New',
+                          price:'19.99',
+                          description:'Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person ',
+                }
+                
+            ]
 }
