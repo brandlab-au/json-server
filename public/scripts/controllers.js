@@ -58,12 +58,19 @@ angular.module('confusionApp')
                         
         }])
 
-        .controller('FeedbackController', ['$scope', function($scope) {
+        .controller('FeedbackController', ['$scope','menuFactory', function($scope,menuFactory) {
             
-            $scope.sendFeedback = function() {
+            
+     $scope.sendFeedback = function() {
+ // Using this function from contacus.html               
+        menuFactory.feedback().then(
+                function (data){
+              $scope.feedback = data;  
+                });
                 
-                console.log($scope.feedback);
-                
+               
+  // close of post function
+         
                 if ($scope.feedback.agree && ($scope.feedback.mychannel == "")) {
                     $scope.invalidChannelSelection = true;
                     console.log('incorrect');
@@ -77,7 +84,7 @@ angular.module('confusionApp')
                 }
             };
         }])
-// http get called on json-server db.json
+
         .controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory', function($scope, $stateParams, menuFactory) {
 
         $scope.dish = {};
@@ -108,12 +115,11 @@ angular.module('confusionApp')
 
         .controller('IndexController', ['$scope', 'menuFactory', 'corporateFactory', 
             function($scope, menuFactory, corporateFactory) {
-// http get's called serve up json-server db.json
-                $scope.dish = {};
-    $scope.featured_dish = menuFactory.getDish(3)
-            .then(
+
+               $scope.featured_dish = {};
+        menuFactory.getDish(3).then(
                  function(response){
-                 $scope.dish = response.data;
+                 $scope.featured_dish = response.data;
                         }
                 );
                 
@@ -124,8 +130,7 @@ angular.module('confusionApp')
             }
             );
                 
-// $scope.chief = corporateFactory.getLeader(3);
-// Call getLeader from corporateFactory and it will fetch data from db.json file
+
             corporateFactory.getLeader(3).then(
                 function(response){
                     $scope.chief =  response.data;
@@ -136,12 +141,12 @@ angular.module('confusionApp')
         .controller('AboutController', ['$scope', 'corporateFactory', 
             function($scope, corporateFactory) {
 
-			// Call getLeaders from corporateFactory and it will fetch data from db.json file
+
             corporateFactory.getLeaders()
                 .then(
                 function (response){
                     $scope.leaders = response.data;
                 });
-            //$scope.leaders = corporateFactory.getLeaders();
+
 
         }]);
