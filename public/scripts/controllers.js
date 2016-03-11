@@ -55,18 +55,25 @@ angular.module('confusionApp')
             
             $scope.channels = channels;
             $scope.invalidChannelSelection = false;
+            
+            
+            
                         
         }])
 
         .controller('FeedbackController', ['$scope','menuFactory', function($scope,menuFactory) {
             
+       
+            
             
      $scope.sendFeedback = function() {
- // Using this function from contacus.html               
-        menuFactory.feedback().then(
-                function (data){
-              $scope.feedback = data;  
-                });
+// I need all scope feedback to go to db.json feedback[]
+         // alert ('hi: '+$scope.feedback.firstName);
+       menuFactory.feedback().then(
+              function(response){
+              $scope.feedback.firstName =  response.$scope.feedback.firstName; 
+                    }
+            ); 
                 
                
   // close of post function
