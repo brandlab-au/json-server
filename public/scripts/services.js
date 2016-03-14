@@ -21,8 +21,8 @@ angular.module('confusionApp')
             return $http.get(baseURL+'promotions/'+index);
                 }
     // below to post data to db.json controler feedback            
-               this.feedback = function() {
-            return $http.post(baseURL+'feedback');
+               this.feedback = function(data) {
+            return $http.post(baseURL+'feedback',data);                 // send data to db.json in post call of feedback
                 }         
         }])
 

@@ -63,13 +63,11 @@ angular.module('confusionApp')
 
         .controller('FeedbackController', ['$scope','menuFactory', function($scope,menuFactory) {
             
-       
-            
-            
+
      $scope.sendFeedback = function() {
 // I need all scope feedback to go to db.json feedback[]
          // alert ('hi: '+$scope.feedback.firstName);
-       menuFactory.feedback().then(
+       menuFactory.feedback($scope.feedback).then(          // send feedback data from controller to service
               function(response){
               $scope.feedback.firstName =  response.$scope.feedback.firstName; 
                     }
