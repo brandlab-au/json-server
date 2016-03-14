@@ -12,7 +12,13 @@ angular.module('confusionApp')
         this.getDish = function (index) {
                 return $http.get(baseURL+'dishes/'+index);
             };
-    
+
+////var menufac = {};
+//			this.getDishes = function(){
+//                         return $resource(baseURL+"dishes/:id",null,  {'update':{method:'PUT' }});
+//
+//             };                
+                
 // Task 1
         this.getPromotion = function(index) {
             return $http.get(baseURL+'promotions/'+index);
