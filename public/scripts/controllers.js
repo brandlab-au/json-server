@@ -65,16 +65,14 @@ angular.module('confusionApp')
             
 
      $scope.sendFeedback = function() {
-// I need all scope feedback to go to db.json feedback[]
-         // alert ('hi: '+$scope.feedback.firstName);
-       menuFactory.feedback($scope.feedback).then(          // send feedback data from controller to service
+// feedback to go to db.json feedback[]
+// alert ('hi: '+$scope.feedback.firstName);
+       menuFactory.feedback($scope.feedback).then(      // send feedback data from controller to service
               function(response){
               $scope.feedback.firstName =  response.$scope.feedback.firstName; 
                     }
             ); 
-                
-               
-  // close of post function
+// close of post function
          
                 if ($scope.feedback.agree && ($scope.feedback.mychannel == "")) {
                     $scope.invalidChannelSelection = true;
@@ -128,14 +126,14 @@ angular.module('confusionApp')
                         }
                 );
                 
-              
+// Task 1 promotion_dish              
             menuFactory.getPromotion(0).then(
             function(response){
               $scope.promotion_dish = response.data;  
             }
             );
                 
-
+// Task 2 chief
             corporateFactory.getLeader(3).then(
                 function(response){
                     $scope.chief =  response.data;
@@ -146,7 +144,7 @@ angular.module('confusionApp')
         .controller('AboutController', ['$scope', 'corporateFactory', 
             function($scope, corporateFactory) {
 
-
+// used on about.html page task 3
             corporateFactory.getLeaders()
                 .then(
                 function (response){
