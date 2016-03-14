@@ -45,5 +45,23 @@ angular.module('confusionApp')
         return corpfac;
 
     }])
+//.service('feedbackFactory', ['$resource', 'baseURL', function($resource,baseURL) {
+//    
+//            this.getFeedback = function(){
+//                return $resource(baseURL+"feedback/:id",null, {'save':{method:'POST' }});
+//            };				
+//                
+//        }])
+
+//.factory('feedbackFactory', ['$resource', 'baseURL', function($resource, baseURL) {
+//            
+//            var postObj = {};
+//
+//            postObj.doPost = function() {
+//                return $resource(baseURL + 'feedback/', null, {'save': {method: 'POST'}});
+//            };
+//
+//            return postObj;
+//        }])
 
 ;
